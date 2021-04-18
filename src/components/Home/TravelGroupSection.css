@@ -1,0 +1,27 @@
+.imglogo {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: -30px;
+
+    align-items: center;
+    background-color: rgb(25, 67, 0);
+    background-image: url(../../images/travelGroup/touristGroupBg.png);
+
+    background-size: 100%;
+
+    box-shadow: 10px 8px 6px -4px rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+
+.logo {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.see-more-button {
+    width: 40%;
+    font-size: x-large;
+    margin-top: 30px; 
+    color: white; 
+    background-color:#436632; 
+    border-radius: 0px;
+}
