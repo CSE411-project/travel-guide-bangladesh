@@ -1,9 +1,9 @@
-.imageblock {
+.popular-place-container .imageblock {
     max-width: 100%;
     max-height: 100%;
 }
 
-.view-all-places-button {
+.popular-place-container .view-all-places-button {
     width: 40%;
     font-size: x-large;
     margin-top: 50px; 
@@ -12,19 +12,19 @@
     border-radius: 0px;
   }
 
-  .left-container {
+  .popular-place-container .left-container {
     position: relative;
     margin-top: 20px;
     margin-left: 20px;
   }
 
-  .right-container {
+  .popular-place-container .right-container {
     position: relative;
     margin-top: 20px;
     margin-left: 20px;
   }
 
-  .image {
+  .popular-place-container .image {
     display: block;
     width: 100%;
     height: auto;
@@ -35,7 +35,7 @@
     transition: .5s ease;
   }
 
-  .left-overlay {
+  .popular-place-container .left-overlay {
     position: absolute;
     bottom: 0;
     left: 100%;
@@ -47,7 +47,7 @@
     transition: .5s ease;
   }
 
-  .right-overlay {
+  .popular-place-container .right-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -61,26 +61,26 @@
 
 
 
-  .left-container:hover .left-overlay {
+  .popular-place-container .left-container:hover .left-overlay {
     width: 100%;
     opacity: 1;
     left: 0;
   }
 
-  .left-container:hover .image {
+  .popular-place-container .left-container:hover .image {
     opacity: 0.3;
   }
 
-  .right-container:hover .right-overlay {
+  .popular-place-container .right-container:hover .right-overlay {
     width: 100%;
     opacity: 1;
   }
 
-  .right-container:hover .image {
+  .popular-place-container .right-container:hover .image {
     opacity: 0.3;
   }
 
-  .text {
+  .popular-place-container .text {
     color: white;
     font-size: 40px;
     position: absolute;

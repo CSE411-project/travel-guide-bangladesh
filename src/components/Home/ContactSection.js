@@ -9,7 +9,7 @@ const ContactSection = () => {
                 <div className="col-md-6 text-white mx-auto">
                     <h1>TRAVEL GUIDE BANGLADESH</h1>
 
-                    <p className="w-100 ">
+                    <p className="w-100">
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute

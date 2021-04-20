@@ -7,7 +7,7 @@ import './PopularPlaces.css';
 
 const PopularPlaces = () => {
     return (
-        <div>
+        <div className="popular-place-container">
             <h1 className="text-center mt-5 mb-5">Popular Places</h1>
 
             <div class="container d-flex justify-content-center">
