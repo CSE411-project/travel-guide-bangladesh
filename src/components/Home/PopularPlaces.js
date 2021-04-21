@@ -10,44 +10,44 @@ const PopularPlaces = () => {
         <div className="popular-place-container">
             <h1 className="text-center mt-5 mb-5">Popular Places</h1>
 
-            <div class="container d-flex justify-content-center">
-                <div class="row justify-content-center">
-                    <div class="col-md-5 justify-content-center">
-                        <div class="row">
-                            <div class="left-container">
-                                <img src={Sundarban} alt="" class="imageblock image" />
+            <div className="container d-flex justify-content-center">
+                <div className="row justify-content-center">
+                    <div className="col-md-5 justify-content-center">
+                        <div className="row">
+                            <div className="left-container">
+                                <img src={Sundarban} alt="" className="imageblock image" />
 
-                                <div class="left-overlay">
-                                    <div class="text">Sundarban</div>
+                                <div className="left-overlay">
+                                    <div className="text">Sundarban</div>
                                 </div>
                             </div>
 
-                            <div class="left-container">
-                                <img src={TanguarHaor} alt="" class="imageblock image" />
+                            <div className="left-container">
+                                <img src={TanguarHaor} alt="" className="imageblock image" />
 
-                                <div class="left-overlay">
-                                    <div class="text">Tanguar Haor</div>
+                                <div className="left-overlay">
+                                    <div className="text">Tanguar Haor</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-5 justify-content-center">
+                    <div className="col-md-5 justify-content-center">
 
-                        <div class="row">
-                            <div class="right-container">
-                                <img src={SaintMartin} alt="" class="imageblock image" />
+                        <div className="row">
+                            <div className="right-container">
+                                <img src={SaintMartin} alt="" className="imageblock image" />
 
-                                <div class="right-overlay">
-                                    <div class="text">Saint Martin</div>
+                                <div className="right-overlay">
+                                    <div className="text">Saint Martin</div>
                                 </div>
                             </div>
 
-                            <div class="right-container">
-                                <img src={Amiakhum} alt="" class="imageblock image" />
+                            <div className="right-container">
+                                <img src={Amiakhum} alt="" className="imageblock image" />
 
-                                <div class="right-overlay">
-                                    <div class="text">Amiakhum</div>
+                                <div className="right-overlay">
+                                    <div className="text">Amiakhum</div>
                                 </div>
                             </div>
                         </div>
@@ -55,8 +55,8 @@ const PopularPlaces = () => {
                 </div>
             </div>
 
-            <div class="container d-flex justify-content-center mb-5">
-                <button class="btn btn-lg view-all-places-button">
+            <div className="container d-flex justify-content-center mb-5">
+                <button className="btn btn-lg view-all-places-button">
                     View All The Places
                 </button>
             </div>

@@ -12,8 +12,8 @@
     margin-top: 20px;
     color: black;
     font: bold;
+    text-align: center;
 }
-
 
 
 
@@ -23,11 +23,12 @@
     border-radius: 5px;
     width: 45%;
     color: white;
-    padding: 5px 0px;
+    padding: 7px 0px 3px;
     text-align: center;
     text-decoration: none;
     font-size: 18px;
     margin-right: 15px;
+    cursor: pointer;
 }
 
 .login-container .gmail {
@@ -36,10 +37,11 @@
     border-radius: 5px;
     width: 45%;
     color: white;
-    padding: 5px 0px;
+    padding: 7px 0px 3px;
     text-align: center;
     text-decoration: none;
     font-size: 18px;
+    cursor: pointer;
 }
 
 .social-icon {

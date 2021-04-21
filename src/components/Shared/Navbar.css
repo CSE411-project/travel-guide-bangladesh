@@ -3,6 +3,15 @@
     max-height: 60%;
 }
 
-a {
+.nav-link {
     font-size: 20px;
+    cursor: pointer;
+}
+
+.dropdown-menu li {
+    cursor: pointer;
+}
+
+.dropdown-menu .dropdown-item:active {
+    background-color: inherit;
 }

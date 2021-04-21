@@ -28,9 +28,9 @@ const ContactSection = () => {
                     <div className="contact text-white">
                         <h1 className="mt-5">Contact US</h1>
 
-                        <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Email Address" />
-                        <input type="email" className="form-control my-4" id="exampleFormControlInput1" placeholder="Subject" />
-                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Message US"></textarea>
+                        <input type="email" className="form-control" placeholder="Email Address" />
+                        <input type="email" className="form-control my-4" placeholder="Subject" />
+                        <textarea className="form-control" rows="5" placeholder="Message US"></textarea>
                     </div>
 
 

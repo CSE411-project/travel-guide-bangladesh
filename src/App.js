@@ -1,5 +1,4 @@
-import React from "react";
-import logo from './logo.svg';
+import React, { createContext, useState } from "react";
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -9,10 +8,14 @@ import {
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 
+export const UserContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
+
   return (
-    <Router>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <Router>
         <Switch>
           <Route exact path={["/", "/home"]}>
             <Home />
@@ -22,6 +25,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+    </UserContext.Provider>
   );
 }
 
