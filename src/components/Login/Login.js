@@ -20,16 +20,24 @@ const Login = () => {
     };
 
     initializeLoginFramework();
-    const [user, setUser] = useState(signedOutUser);
-    const [, setLoggedInUser] = useContext(UserContext);
+    const {loggedInUser, setLoggedInUser, setIsAdmin} = useContext(UserContext);
     let history = useHistory();
     let location = useLocation();
 
     let { from } = location.state || { from: { pathname: "/" } };
 
     const handleResponse = (res) => {
-        setUser(res);
         if (res.success) {
+            fetch('http://localhost:5000/checkAdmin', { 
+                method: 'POST',
+                headers : { 
+                    'Content-Type': 'application/json'
+                   },
+                body: JSON.stringify({email: res.email})
+            })
+                .then(result => result.json())
+                .then(adminStatus => setIsAdmin(adminStatus.adminVerified));
+
             setLoggedInUser(res);
             history.replace(from);
         }
@@ -80,7 +88,7 @@ const Login = () => {
                         </div>
 
                         {
-                            user.error && <p className="text-center text-danger mt-5">{user.error}</p>
+                            loggedInUser.error && <p className="text-center text-danger mt-5">{loggedInUser.error}</p>
                         }
                     </div>
                 </div>
