@@ -8,6 +8,8 @@ import {
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
+import NotFound from "./components/NotFound/NotFound";
+import TravelGroupList from "./components/TravelGroupList/TravelGroupList";
 
 export const UserContext = createContext();
 
@@ -30,11 +32,21 @@ function App() {
           <Route exact path={["/", "/home"]}>
             <Home />
           </Route>
+
           <Route path="/login">
             <Login />
           </Route>
+
           <Route path="/admin">
             <AdminPanel />
+          </Route>
+
+          <Route path="/travelGroupList">
+            <TravelGroupList />
+          </Route>
+          
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
       </Router>

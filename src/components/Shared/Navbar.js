@@ -29,7 +29,7 @@ const Navbar = () => {
                             <a className="nav-link mr-5" href="#">Tourist Places</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link mr-5" href="#">Tourist Groups</a>
+                            <Link className="nav-link mr-5" aria-current="page" to="/travelGroupList">Travel Groups</Link>
                         </li>
                         {
                             isAdmin &&
