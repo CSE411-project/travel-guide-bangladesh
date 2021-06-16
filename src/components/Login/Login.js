@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import logo from '../../images/logo/logo.png';
 import Navbar from '../Shared/Navbar';
 import './Login.css';
@@ -9,15 +9,15 @@ import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
 
 const Login = () => {
-    const signedOutUser = {
-        isSignedIn: false,
-        displayName: '',
-        email: '',
-        password: '',
-        photo: '',
-        error: '',
-        success: false
-    };
+    // const signedOutUser = {
+    //     isSignedIn: false,
+    //     displayName: '',
+    //     email: '',
+    //     password: '',
+    //     photo: '',
+    //     error: '',
+    //     success: false
+    // };
 
     initializeLoginFramework();
     const {loggedInUser, setLoggedInUser, setIsAdmin} = useContext(UserContext);
@@ -71,7 +71,7 @@ const Login = () => {
                         <h2 className="text text-center">Join All The Users From Different Regions</h2>
                         <p className="text">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dicta corrupti, molestiae necessitatibus error exercitationem, pariatur quae, in saepe soluta officia? Fugit quia inventore eaque reiciendis esse ipsam quisquam sequi.
-                            </p>
+                        </p>
 
 
                         <h5 className="continue-text my-5"> Continue with</h5>

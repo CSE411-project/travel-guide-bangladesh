@@ -16,8 +16,10 @@ export const UserContext = createContext();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [groupList, setGroupList] = useState([]);
+  const [destinationList, setDestinationList] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
   const [loadGroup, setLoadGroup] = useState(false);
+  const [loadDestination, setLoadDestination] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:5000/groupList')
@@ -25,8 +27,14 @@ function App() {
     .then(data => setGroupList(data))
   }, [loadGroup]);
 
+  useEffect(() => {
+    fetch('http://localhost:5000/destinationList')
+    .then(res => res.json())
+    .then(data => setDestinationList(data))
+  }, [loadDestination]);
+
   return (
-    <UserContext.Provider value={{loggedInUser, setLoggedInUser, groupList, setGroupList, setLoadGroup, isAdmin, setIsAdmin}}>
+    <UserContext.Provider value={{loggedInUser, setLoggedInUser, groupList, setGroupList, destinationList, setDestinationList, setLoadGroup, setLoadDestination, isAdmin, setIsAdmin}}>
       <Router>
         <Switch>
           <Route exact path={["/", "/home"]}>

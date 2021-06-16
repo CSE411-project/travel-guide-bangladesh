@@ -1,63 +1,26 @@
-import React from 'react';
-import Sundarban from '../../images/popularPlaces/sundarban.jpg';
-import TanguarHaor from '../../images/popularPlaces/tanguarHaor.jpg';
-import SaintMartin from '../../images/popularPlaces/saintMartin.jpg';
-import Amiakhum from '../../images/popularPlaces/amiakhum.jpg';
+import React, { useContext } from 'react';
 import './PopularPlaces.css';
+import PopularPlacesItem from './PopularPlacesItem';
+import { UserContext } from '../../App';
 
 const PopularPlaces = () => {
+    const {destinationList} = useContext(UserContext);
+    console.log(typeof destinationList);
+    console.log(destinationList);
+
     return (
         <div className="popular-place-container">
-            <h1 className="text-center mt-5 mb-5">Popular Places</h1>
+            <h1 className="text-center mt-5 mb-5">Now Trending</h1>
 
-            <div className="container d-flex justify-content-center">
-                <div className="row justify-content-center">
-                    <div className="col-md-5 justify-content-center">
-                        <div className="row">
-                            <div className="left-container">
-                                <img src={Sundarban} alt="" className="imageblock image" />
-
-                                <div className="left-overlay">
-                                    <div className="text">Sundarban</div>
-                                </div>
-                            </div>
-
-                            <div className="left-container">
-                                <img src={TanguarHaor} alt="" className="imageblock image" />
-
-                                <div className="left-overlay">
-                                    <div className="text">Tanguar Haor</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="col-md-5 justify-content-center">
-
-                        <div className="row">
-                            <div className="right-container">
-                                <img src={SaintMartin} alt="" className="imageblock image" />
-
-                                <div className="right-overlay">
-                                    <div className="text">Saint Martin</div>
-                                </div>
-                            </div>
-
-                            <div className="right-container">
-                                <img src={Amiakhum} alt="" className="imageblock image" />
-
-                                <div className="right-overlay">
-                                    <div className="text">Amiakhum</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div className="row justify-content-center">
+                {
+                    destinationList.map(destination => <PopularPlacesItem key={destination.destination_name} destination={destination} />)
+                }
             </div>
 
-            <div className="container d-flex justify-content-center mb-5">
+            <div style={{marginTop: "-50px"}} className="container d-flex justify-content-center mb-5">
                 <button className="btn btn-lg view-all-places-button">
-                    View All The Places
+                    See More
                 </button>
             </div>
         </div>

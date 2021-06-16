@@ -1,16 +1,24 @@
 .travelGroupSection {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin-top: -30px;
 
-    align-items: center;
+    position: absolute;
+    top: 0;
+}
+
+.travel-group-parallax {
+    /* The image used */
     background-color: rgb(25, 67, 0);
     background-image: url(../../images/travelGroup/touristGroupBg.png);
-
-    background-size: 100%;
-
-    box-shadow: 10px 8px 6px -4px rgba(0, 0, 0, 0.4);
-    width: 100%;
-}
+  
+    /* Set a specific height */
+    min-height: 550px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
 .travelGroupSection .logo {
     max-width: 100%;

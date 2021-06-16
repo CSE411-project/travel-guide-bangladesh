@@ -3,11 +3,11 @@ import { UserContext } from '../../App';
 import Navbar from '../Shared/Navbar';
 
 const AdminPanel = () => {
-    const {setLoadGroup} = useContext(UserContext);
+    const {setLoadGroup, setLoadDestination} = useContext(UserContext);
     const [groupInfo, setGroupInfo] = useState({});
     const [destinationInfo, setDestinaitonInfo] = useState({});
     const [groupImage, setGroupImage] = useState(null);
-    const [destinationImage, setDestinationImage] = useState(null);
+    const [destinationImage, setDestinationImage] = useState({});
 
     const handleGroupFileChange = e => {
         const newGroupImage = e.target.files[0];
@@ -15,7 +15,7 @@ const AdminPanel = () => {
     }
 
     const handleDestinationFileChange = e => {
-        const newDestinationImage = e.target.files[0];
+        const newDestinationImage = e.target.files;
         setDestinationImage(newDestinationImage);
     }
 
@@ -58,15 +58,17 @@ const AdminPanel = () => {
         })
 
         e.preventDefault();
-    }
+    };
     
     const handleDestinationSubmit = (e) => {
         const destinationFormData = new FormData();
         destinationFormData.append('destination_name', destinationInfo.destination_name);
         destinationFormData.append('destination_district', destinationInfo.destination_district);
         destinationFormData.append('destination_description', destinationInfo.destination_description);
-        destinationFormData.append('destinationImage', destinationImage);
         destinationFormData.append('like_count', 0);
+        for(let i = 0; i < destinationImage.length; i++) {
+            destinationFormData.append('destinationImage', destinationImage[i]);
+        }
 
         fetch('http://localhost:5000/addDescription', {
             method: 'POST',
@@ -79,6 +81,7 @@ const AdminPanel = () => {
             else
                 alert("Error. Please try again...");
             
+            setLoadDestination(true);
             e.target.reset();
         })
         .catch(err => {
@@ -86,7 +89,7 @@ const AdminPanel = () => {
         })
 
         e.preventDefault();
-    }
+    };
 
     return (
         <>
@@ -125,11 +128,12 @@ const AdminPanel = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="destination-description">Description</label>
-                        <input onBlur={handleDestinationBlur} type="text" id="destination-description" className="form-control" name="destination_description" placeholder="Destination Description" required />
+                        <textarea onBlur={handleDestinationBlur} id="destination-description" className="form-control" name="destination_description" rows="6" required></textarea>
+                        {/* <input onBlur={handleDestinationBlur} type="text" id="destination-description" className="form-control" name="destination_description" placeholder="Destination Description" required /> */}
                     </div>
                     <div className="form-group">
                         <label htmlFor="destination-images">Destination Images</label>
-                        <input onChange={handleDestinationFileChange} type="file" id="destination-images" name="logo" className="form-control" required />
+                        <input onChange={handleDestinationFileChange} type="file" id="destination-images" name="logo" className="form-control" multiple required />
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
