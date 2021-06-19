@@ -14,7 +14,7 @@ const PopularPlaces = () => {
 
             <div className="row justify-content-center">
                 {
-                    destinationList.map(destination => <PopularPlacesItem key={destination.destination_name} destination={destination} />)
+                    destinationList.map(destination => <PopularPlacesItem key={destination._id} destination={destination} />)
                 }
             </div>
 

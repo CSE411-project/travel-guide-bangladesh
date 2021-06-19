@@ -27,14 +27,14 @@ const ContactSection = () => {
     }
 
     return (
-        <div className="container ourinfo text-center">
-
-            <div className="row">
-                <div className="col-md-6 text-white mx-auto">
+        <div className="contact-info">
+            <div className="contact-parallax"></div>
+            <div className="contact-main">
+                <div className="mx-auto w-50 text-white text-center">
                     <h1>TRAVEL GUIDE BANGLADESH</h1>
 
-                    <p className="w-100">
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
                         irure dolor
@@ -46,30 +46,25 @@ const ContactSection = () => {
                         irure dolor
                         in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                        anim id est laborum."
+                        anim id est laborum.
                     </p>
 
-                    <div className="contact text-white">
-                        <h1 className="mt-5">Contact Us</h1>
+                    <h1 className="mt-5">Contact Us</h1>
 
-                        <form onSubmit={sendEmail}>
-                            {
-                                loggedInUser.email &&
-                                <>
-                                    <input type="text" className="form-control my-4" placeholder="Name" name="name" value={loggedInUser.name} />
-                                    <input type="email" className="form-control my-4" placeholder="Email" name="email" value={loggedInUser.email} />
-                                </>                                
-                            }
-                            <input type="text" className="form-control my-4" placeholder="Subject" name="subject" required />
-                            <textarea className="form-control" rows="5" placeholder="Message US" name="message" required></textarea>
-                            <input className="btn btn-block btn-outline-success mt-3" type="submit" value="Send Message"/>
-                        </form>
-                    </div>
-
-
+                    <form onSubmit={sendEmail}>
+                        {
+                            loggedInUser.email &&
+                            <>
+                                <input type="text" className="form-control my-4" placeholder="Name" name="name" value={loggedInUser.name} />
+                                <input type="email" className="form-control my-4" placeholder="Email" name="email" value={loggedInUser.email} />
+                            </>                                
+                        }
+                        <input type="text" className="form-control my-4" placeholder="Subject" name="subject" required />
+                        <textarea className="form-control" rows="5" placeholder="Message US" name="message" required></textarea>
+                        <input className="btn btn-block btn-outline-success mt-3" type="submit" value="Send Message"/>
+                    </form>
                 </div>
             </div>
-
         </div>
     );
 };

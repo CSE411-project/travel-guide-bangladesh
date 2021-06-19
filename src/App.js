@@ -10,6 +10,7 @@ import Login from "./components/Login/Login";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 import NotFound from "./components/NotFound/NotFound";
 import TravelGroupList from "./components/TravelGroupList/TravelGroupList";
+import Destination from "./components/Destination/Destination";
 
 export const UserContext = createContext();
 
@@ -51,6 +52,18 @@ function App() {
 
           <Route path="/travelGroupList">
             <TravelGroupList />
+          </Route>
+
+          {/* <Route path="/travelGroup/:travelGroupId">
+            <SingleTravelGroup />
+          </Route>
+
+          <Route path="/destinationList">
+            <DestinationList />
+          </Route> */}
+
+          <Route path="/destination/:destinationId">
+            <Destination />
           </Route>
           
           <Route path="*">
