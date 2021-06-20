@@ -8,7 +8,7 @@
   }
   
   .popular-place-container .loader {
-    border: 16px solid #f3f3f3;
+    border: 16px solid inherit;
     border-radius: 50%;
     border-top: 16px solid green;
     border-bottom: 16px solid green;
