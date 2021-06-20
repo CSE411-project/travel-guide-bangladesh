@@ -1,7 +1,7 @@
 .popular-place-container .view-all-places-button {
-    width: 40%;
+    padding: 10px 150px;
     font-size: x-large;
-    margin-top: 50px; 
+    margin-top: 30px; 
     color: white; 
     background-color:#436632; 
     border-radius: 0px;

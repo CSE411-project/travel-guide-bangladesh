@@ -5,7 +5,6 @@
 .login-container .logo {
     max-width: 60%;
     border-radius: 5px;
-
 }
 
 .login-container .text {
@@ -15,11 +14,8 @@
     text-align: center;
 }
 
-
-
 .login-container .facebook {
     background-color: rgb(66, 103, 178);
-    /* Green */
     border-radius: 5px;
     width: 45%;
     color: white;
@@ -50,14 +46,11 @@
 
 .login-container .imagebackground {
     background-color: rgb(249, 255, 248);
-
-
 }
 
 .login-container .imageset {
     max-width: 70%;
 }
-
 
 .login-container .continue-text {
     display: flex;
@@ -70,7 +63,6 @@
     flex: 1 1;
     border-bottom: 1px solid;
     margin: auto;
-    
 }
 
 .login-container .continue-text:before {

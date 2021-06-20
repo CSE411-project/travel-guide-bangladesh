@@ -3,7 +3,6 @@ import { UserContext } from '../../App';
 import Footer from '../Shared/Footer';
 import Navbar from '../Shared/Navbar';
 import GroupListItem from './GroupListItem';
-import './TravelGroupList.css';
 
 const TravelGroupList = () => {
     const {groupList} = useContext(UserContext);
@@ -17,7 +16,7 @@ const TravelGroupList = () => {
 
                 <div className="row">
                     {
-                        groupList.map(group => <GroupListItem key={group.group_name} group={group} />)
+                        groupList.map(group => <GroupListItem key={group._id} group={group} />)
                     }
                 </div>
             </div>

@@ -17,6 +17,7 @@ const signedOutUser = {
     email: '',
     photo: '',
     error: '',
+    isAdmin: false,
     success: false
 };
 
@@ -31,6 +32,7 @@ export const handleGoogleSignIn = () => {
                 name: displayName,
                 email: email,
                 photo: photoURL,
+                isAdmin: false,
                 success: true
             };
             setUserToken();
@@ -55,6 +57,7 @@ export const handleFbSignIn = () => {
                 name: displayName,
                 email: email,
                 photo: photoURL,
+                isAdmin: false,
                 success: true
             };
             return signedInUser;

@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
 
 const Navbar = () => {
-    const {loggedInUser, setLoggedInUser, isAdmin, setIsAdmin} = useContext(UserContext);
+    const { loggedInUser, setLoggedInUser } = useContext(UserContext);
     const handleLogOut = () => {
+        localStorage.removeItem("userInfo");
         setLoggedInUser({}); 
-        setIsAdmin(false);
     }
 
     return (
@@ -26,13 +26,13 @@ const Navbar = () => {
                             <Link className="nav-link mr-5 active" aria-current="page" to="/home">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link mr-5" href="#">Tourist Places</a>
+                            <Link className="nav-link mr-5" aria-current="page" to="/destinationList">Travel Destinations</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link mr-5" aria-current="page" to="/travelGroupList">Travel Groups</Link>
                         </li>
                         {
-                            isAdmin &&
+                            loggedInUser.isAdmin &&
                             <li className="nav-item">
                                 <Link className="nav-link mr-5" aria-current="page" to="/admin">Admin Panel</Link>
                             </li>

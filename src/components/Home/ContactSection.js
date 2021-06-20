@@ -55,8 +55,8 @@ const ContactSection = () => {
                         {
                             loggedInUser.email &&
                             <>
-                                <input type="text" className="form-control my-4" placeholder="Name" name="name" value={loggedInUser.name} />
-                                <input type="email" className="form-control my-4" placeholder="Email" name="email" value={loggedInUser.email} />
+                                <input type="text" className="form-control my-4" name="name" value={loggedInUser.name} readOnly= {true} />
+                                <input type="email" className="form-control my-4" name="email" value={loggedInUser.email} readOnly= {true} />
                             </>                                
                         }
                         <input type="text" className="form-control my-4" placeholder="Subject" name="subject" required />

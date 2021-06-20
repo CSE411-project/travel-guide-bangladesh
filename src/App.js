@@ -11,6 +11,7 @@ import AdminPanel from "./components/AdminPanel/AdminPanel";
 import NotFound from "./components/NotFound/NotFound";
 import TravelGroupList from "./components/TravelGroupList/TravelGroupList";
 import Destination from "./components/Destination/Destination";
+import DestinationList from "./components/DestinationList/DestinationList";
 
 export const UserContext = createContext();
 
@@ -18,9 +19,14 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [groupList, setGroupList] = useState([]);
   const [destinationList, setDestinationList] = useState([]);
-  const [isAdmin, setIsAdmin] = useState(false);
   const [loadGroup, setLoadGroup] = useState(false);
   const [loadDestination, setLoadDestination] = useState(false);
+
+  useEffect(() => {
+    const userInfo = localStorage.getItem("userInfo") || "{}";
+    const data = JSON.parse(userInfo);
+    setLoggedInUser(data);
+  }, []);
 
   useEffect(() => {
     fetch('http://localhost:5000/groupList')
@@ -35,7 +41,7 @@ function App() {
   }, [loadDestination]);
 
   return (
-    <UserContext.Provider value={{loggedInUser, setLoggedInUser, groupList, setGroupList, destinationList, setDestinationList, setLoadGroup, setLoadDestination, isAdmin, setIsAdmin}}>
+    <UserContext.Provider value={{ loggedInUser, setLoggedInUser, groupList, setGroupList, destinationList, setDestinationList, setLoadGroup, setLoadDestination }}>
       <Router>
         <Switch>
           <Route exact path={["/", "/home"]}>
@@ -56,11 +62,11 @@ function App() {
 
           {/* <Route path="/travelGroup/:travelGroupId">
             <SingleTravelGroup />
-          </Route>
+          </Route> */}
 
           <Route path="/destinationList">
             <DestinationList />
-          </Route> */}
+          </Route>
 
           <Route path="/destination/:destinationId">
             <Destination />

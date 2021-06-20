@@ -2,11 +2,10 @@ import React, { useContext } from 'react';
 import './PopularPlaces.css';
 import PopularPlacesItem from './PopularPlacesItem';
 import { UserContext } from '../../App';
+import { Link } from 'react-router-dom';
 
 const PopularPlaces = () => {
     const {destinationList} = useContext(UserContext);
-    console.log(typeof destinationList);
-    console.log(destinationList);
 
     return (
         <div className="popular-place-container">
@@ -19,9 +18,11 @@ const PopularPlaces = () => {
             </div>
 
             <div style={{marginTop: "-50px"}} className="container d-flex justify-content-center mb-5">
-                <button className="btn btn-lg view-all-places-button">
-                    See More
-                </button>
+                <Link to="/destinationList">
+                    <button className="btn btn-lg view-all-places-button">
+                        See More
+                    </button>
+                </Link>
             </div>
         </div>
     );

@@ -20,7 +20,7 @@ const Login = () => {
     // };
 
     initializeLoginFramework();
-    const {loggedInUser, setLoggedInUser, setIsAdmin} = useContext(UserContext);
+    const {loggedInUser, setLoggedInUser} = useContext(UserContext);
     let history = useHistory();
     let location = useLocation();
 
@@ -36,9 +36,14 @@ const Login = () => {
                 body: JSON.stringify({email: res.email})
             })
                 .then(result => result.json())
-                .then(adminStatus => setIsAdmin(adminStatus.adminVerified));
+                .then(adminStatus => {
+                    const userInfo = res;
+                    userInfo.isAdmin = adminStatus.adminVerified;
+                    setLoggedInUser(userInfo);
+                    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+                    console.log(userInfo);
+                });
 
-            setLoggedInUser(res);
             history.replace(from);
         }
     };
