@@ -11,11 +11,17 @@ const PopularPlaces = () => {
         <div className="popular-place-container">
             <h1 className="text-center mt-5 mb-5">Now Trending</h1>
 
-            <div className="row justify-content-center">
-                {
-                    destinationList.map(destination => <PopularPlacesItem key={destination._id} destination={destination} />)
-                }
-            </div>
+            {
+                destinationList.length 
+                ?
+                <div className="row justify-content-center">
+                    {
+                        destinationList.map(destination => <PopularPlacesItem key={destination._id} destination={destination} />)
+                    }
+                </div>
+                :
+                <div className="loader mx-auto"></div>
+            }
 
             <div style={{marginTop: "-50px"}} className="container d-flex justify-content-center mb-5">
                 <Link to="/destinationList">

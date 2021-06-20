@@ -41,7 +41,6 @@ const Login = () => {
                     userInfo.isAdmin = adminStatus.adminVerified;
                     setLoggedInUser(userInfo);
                     localStorage.setItem("userInfo", JSON.stringify(userInfo));
-                    console.log(userInfo);
                 });
 
             history.replace(from);

@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../../App';
-import Navbar from '../Shared/Navbar';
 
 const AdminPanel = () => {
     const {setLoadGroup, setLoadDestination} = useContext(UserContext);
@@ -92,53 +91,50 @@ const AdminPanel = () => {
     };
 
     return (
-        <>
-            <Navbar />
-            <div className="container">     
-                <form className="my-5" onSubmit={handleGroupSubmit}>
-                    <h3>Add a new Group</h3>
-                    <div className="form-group">
-                        <label htmlFor="groupName">Group Name</label>
-                        <input onBlur={handleGroupBlur} type="text" id="groupName" className="form-control" name="group_name" placeholder="Group Name" required />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="fbURL">Facebook URL</label>
-                        <input onBlur={handleGroupBlur} type="text" id="fbURL" className="form-control" name="fb_url" placeholder="Facebook URL" required />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="description">Description</label>
-                        <input onBlur={handleGroupBlur} type="text" id="description" className="form-control" name="group_description" placeholder="Group Description" required />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="logoImage">Logo Image</label>
-                        <input onChange={handleGroupFileChange} type="file" id="logoImage" name="logo" className="form-control" required />
-                    </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                </form>
+        <div className="container">     
+            <form className="my-5" onSubmit={handleGroupSubmit}>
+                <h3>Add a new Group</h3>
+                <div className="form-group">
+                    <label htmlFor="groupName">Group Name</label>
+                    <input onBlur={handleGroupBlur} type="text" id="groupName" className="form-control" name="group_name" placeholder="Group Name" required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="fbURL">Facebook URL</label>
+                    <input onBlur={handleGroupBlur} type="text" id="fbURL" className="form-control" name="fb_url" placeholder="Facebook URL" required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="description">Description</label>
+                    <input onBlur={handleGroupBlur} type="text" id="description" className="form-control" name="group_description" placeholder="Group Description" required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="logoImage">Logo Image</label>
+                    <input onChange={handleGroupFileChange} type="file" id="logoImage" name="logo" className="form-control" required />
+                </div>
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
 
-                <form className="my-5" onSubmit={handleDestinationSubmit}>
-                    <h3>Add a new Destination</h3>
-                    <div className="form-group">
-                        <label htmlFor="destination-name">Destination Name</label>
-                        <input onBlur={handleDestinationBlur} type="text" id="destination-name" className="form-control" name="destination_name" placeholder="Destination Name" required />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="destination-district">District Name</label>
-                        <input onBlur={handleDestinationBlur} type="text" id="destination-district" className="form-control" name="destination_district" placeholder="District Name" required />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="destination-description">Description</label>
-                        <textarea onBlur={handleDestinationBlur} id="destination-description" className="form-control" name="destination_description" rows="6" required></textarea>
-                        {/* <input onBlur={handleDestinationBlur} type="text" id="destination-description" className="form-control" name="destination_description" placeholder="Destination Description" required /> */}
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="destination-images">Destination Images</label>
-                        <input onChange={handleDestinationFileChange} type="file" id="destination-images" name="logo" className="form-control" multiple required />
-                    </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                </form>
-            </div>
-        </>
+            <form className="my-5" onSubmit={handleDestinationSubmit}>
+                <h3>Add a new Destination</h3>
+                <div className="form-group">
+                    <label htmlFor="destination-name">Destination Name</label>
+                    <input onBlur={handleDestinationBlur} type="text" id="destination-name" className="form-control" name="destination_name" placeholder="Destination Name" required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="destination-district">District Name</label>
+                    <input onBlur={handleDestinationBlur} type="text" id="destination-district" className="form-control" name="destination_district" placeholder="District Name" required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="destination-description">Description</label>
+                    <textarea onBlur={handleDestinationBlur} id="destination-description" className="form-control" name="destination_description" rows="6" required></textarea>
+                    {/* <input onBlur={handleDestinationBlur} type="text" id="destination-description" className="form-control" name="destination_description" placeholder="Destination Description" required /> */}
+                </div>
+                <div className="form-group">
+                    <label htmlFor="destination-images">Destination Images</label>
+                    <input onChange={handleDestinationFileChange} type="file" id="destination-images" name="logo" className="form-control" multiple required />
+                </div>
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
+        </div>
     );
 };
 

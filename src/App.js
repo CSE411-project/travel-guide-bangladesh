@@ -12,6 +12,8 @@ import NotFound from "./components/NotFound/NotFound";
 import TravelGroupList from "./components/TravelGroupList/TravelGroupList";
 import Destination from "./components/Destination/Destination";
 import DestinationList from "./components/DestinationList/DestinationList";
+import Navbar from "./components/Shared/Navbar";
+import Footer from "./components/Shared/Footer";
 
 export const UserContext = createContext();
 
@@ -43,6 +45,7 @@ function App() {
   return (
     <UserContext.Provider value={{ loggedInUser, setLoggedInUser, groupList, setGroupList, destinationList, setDestinationList, setLoadGroup, setLoadDestination }}>
       <Router>
+        <Navbar />
         <Switch>
           <Route exact path={["/", "/home"]}>
             <Home />
@@ -76,6 +79,7 @@ function App() {
             <NotFound />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     </UserContext.Provider>
   );
