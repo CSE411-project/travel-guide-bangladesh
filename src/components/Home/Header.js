@@ -1,11 +1,11 @@
 import React from 'react';
-import Carousel from '../Home/Carousel';
+import HomeCarousel from './HomeCarousel';
 import './Header.css';
 
 const Header = () => {
     return (
         <div className="headermain">
-            <Carousel></Carousel>
+            <HomeCarousel />
         </div>
     );
 };

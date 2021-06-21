@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import logo from '../../images/logo/logo.png';
-import Navbar from '../Shared/Navbar';
 import './Login.css';
 import { AiFillFacebook } from "react-icons/ai";
 import { SiGmail } from "react-icons/si";
@@ -63,8 +62,6 @@ const Login = () => {
 
     return (
         <div className="login-container">
-            <Navbar></Navbar>
-
             <div style={{marginTop: '70px'}} className="text-center">
                 <img className="image-header" src={logo} alt="" />
             </div>

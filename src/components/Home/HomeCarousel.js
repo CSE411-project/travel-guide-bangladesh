@@ -4,7 +4,7 @@ import CarouselImage2 from '../../images/carousel/carousel2.jpg';
 import CarouselImage3 from '../../images/carousel/carousel3.jpg';
 import './Carousel.css';
 
-const Carousel = () => {
+const HomeCarousel = () => {
     return (
         <div className="container">
             <div className="row">
@@ -65,4 +65,4 @@ const Carousel = () => {
     );
 };
 
-export default Carousel;
+export default HomeCarousel;
