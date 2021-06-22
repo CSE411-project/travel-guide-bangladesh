@@ -27,17 +27,15 @@ const Login = () => {
 
     const handleResponse = (res) => {
         if (res.success) {
-            fetch('http://localhost:5000/checkAdmin', { 
+            fetch('http://localhost:5000/checkUser', { 
                 method: 'POST',
                 headers : { 
                     'Content-Type': 'application/json'
                    },
-                body: JSON.stringify({email: res.email})
+                body: JSON.stringify({email: res.email, name: res.name, photo: res.photo})
             })
                 .then(result => result.json())
-                .then(adminStatus => {
-                    const userInfo = res;
-                    userInfo.isAdmin = adminStatus.adminVerified;
+                .then(userInfo => {
                     setLoggedInUser(userInfo);
                     localStorage.setItem("userInfo", JSON.stringify(userInfo));
                 });

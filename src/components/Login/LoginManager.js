@@ -12,12 +12,10 @@ export const initializeLoginFramework = () => {
 }
 
 const signedOutUser = {
-    isSignedIn: false,
     name: '',
     email: '',
     photo: '',
     error: '',
-    isAdmin: false,
     success: false
 };
 
@@ -28,11 +26,9 @@ export const handleGoogleSignIn = () => {
         .then(res => {
             const { displayName, email, photoURL } = res.user;
             const signedInUser = {
-                isSignedIn: true,
                 name: displayName,
                 email: email,
                 photo: photoURL,
-                isAdmin: false,
                 success: true
             };
             setUserToken();
@@ -53,11 +49,9 @@ export const handleFbSignIn = () => {
         .then((res) => {
             const { displayName, email, photoURL } = res.user;
             const signedInUser = {
-                isSignedIn: true,
                 name: displayName,
                 email: email,
                 photo: photoURL,
-                isAdmin: false,
                 success: true
             };
             return signedInUser;
