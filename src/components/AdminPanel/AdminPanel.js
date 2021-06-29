@@ -68,8 +68,8 @@ const AdminPanel = () => {
         for(let i = 0; i < destinationImage.length; i++) {
             destinationFormData.append('destinationImage', destinationImage[i]);
         }
-
-        fetch('http://localhost:5000/addDescription', {
+    
+        fetch('http://localhost:5000/addDestination', {
             method: 'POST',
             body: destinationFormData
         })

@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import './PopularPlacesItem.css';
 
 const PopularPlacesItem = ({destination}) => {
-    const {_id, destination_name, destination_district, destImage, like_count} = destination;
+    const {_id, destination_name, destination_district, destImageURL, like_count} = destination;
 
     return (
         <Link to={"/destination/" + _id} className="col-md-4 mx-3 mb-5">
             <div className="dest-img-container">
-                <img className="image img-fluid" src={`data:image/png;base64,${destImage[0].img}`} alt=""/>
+                <img className="image img-fluid" src={destImageURL[0]} alt=""/>
                 
                 <div className="details-overlay">
                     <div className="row justify-content-between mx-1">

@@ -8,14 +8,15 @@ import BookmarkButton from './BookmarkButton';
 import DestinationLikeButton from './DestinationLikeButton';
 
 const Destination = () => {
-    const { destinationList } = useContext(UserContext);
+    const { loggedInUser } = useContext(UserContext);
     const { destinationId } = useParams();
     const [destination, setDestination] = useState({});
     
     useEffect(() => {
-        const currentDestinaiton = destinationList.find(dest => dest._id === destinationId);
-        setDestination(currentDestinaiton);
-    }, [destinationList, destinationId]);
+        fetch('http://localhost:5000/destination/' + destinationId)
+            .then(res => res.json())        
+            .then(data => setDestination(data));
+    }, [destinationId]);
     
     return (
         <div className="destination-container">
@@ -25,10 +26,15 @@ const Destination = () => {
                     <h4 className="darkOliveGreen">{destination.destination_district}</h4>
                     <hr />
                     <p className="lead darkOliveGreen">{destination.like_count} people like this place</p>
-                    <DestinationLikeButton destinationId={destinationId} />
-                    <BookmarkButton destinationId={destinationId} />           
+                    {
+                        loggedInUser.email &&
+                        <>
+                            <DestinationLikeButton destinationId={destinationId} />
+                            <BookmarkButton destinationId={destinationId} />  
+                        </>
+                    }         
                 </div>
-                <DestinationImage destinationId={destinationId} />
+                <DestinationImage destination={destination} />
             </div>
             <p className="container space text-justify lead darkOliveGreen my-5">
                 {destination.destination_description}
