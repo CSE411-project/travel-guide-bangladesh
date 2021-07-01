@@ -42,7 +42,7 @@ const Navbar = () => {
                                 loggedInUser.email 
                                 ?
                                 <div className="dropdown show">
-                                    <div className="nav-link text-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div className="nav-link text-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <img className="w-25 mr-2 rounded-circle" src={loggedInUser.photo} alt=""/>
                                         {loggedInUser.name}
                                     </div>

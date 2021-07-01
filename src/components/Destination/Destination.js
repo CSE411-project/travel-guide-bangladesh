@@ -25,11 +25,11 @@ const Destination = () => {
                     <h1 className="darkOliveGreen">{destination.destination_name}</h1>
                     <h4 className="darkOliveGreen">{destination.destination_district}</h4>
                     <hr />
-                    <p className="lead darkOliveGreen">{destination.like_count} people like this place</p>
+                    <p className="lead darkOliveGreen">{Number(destination.like_count)} people like this place</p>
                     {
                         loggedInUser.email &&
                         <>
-                            <DestinationLikeButton destinationId={destinationId} />
+                            <DestinationLikeButton destinationId={destinationId} destination={destination} setDestination={setDestination} />
                             <BookmarkButton destinationId={destinationId} />  
                         </>
                     }         

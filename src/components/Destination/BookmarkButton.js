@@ -30,7 +30,7 @@ const BookmarkButton = ({ destinationId }) => {
         setLoggedInUser(newUserInfo);
         localStorage.setItem("userInfo", JSON.stringify(newUserInfo));      
 
-        fetch('http://localhost:5000/updateUserBookmark', {
+        fetch('http://localhost:5000/updateBookmark', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({email: loggedInUser.email, bookmarks: newBookmarks})
