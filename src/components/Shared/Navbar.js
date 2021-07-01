@@ -47,7 +47,7 @@ const Navbar = () => {
                                         {loggedInUser.name}
                                     </div>
 
-                                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <ul className="dropdown-menu w-75 green-background" aria-labelledby="dropdownMenuLink">
                                         <li className="dropdown-item text-secondary">Bookmarks</li>
                                         <li onClick={handleLogOut} className="dropdown-item text-secondary font-weight-bold">Logout</li>
                                     </ul>

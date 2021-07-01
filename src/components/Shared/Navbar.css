@@ -13,5 +13,9 @@
 }
 
 .dropdown-menu .dropdown-item:active {
-    background-color: inherit;
+    background-color: white;
+}
+
+.green-background {
+    background-color: rgb(249, 255, 248);
 }

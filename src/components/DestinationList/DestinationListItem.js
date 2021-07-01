@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const DestinationlistItem = ({destination}) => {
     const destinationDescription = destination.destination_description.substr(0, 100);
@@ -17,7 +18,7 @@ const DestinationlistItem = ({destination}) => {
                         <h6 className="pt-2">
                             <FontAwesomeIcon style={{fontSize: '1.3em', color: "grey"}} icon={faHeart} /> {destination.like_count}
                         </h6>
-                        <button className="btn btn-secondary">See Full Info</button>
+                        <Link to={"/destination/" + destination._id} className="btn btn-secondary">See Full Info</Link>
                     </div>
                 </div>
             </div>
