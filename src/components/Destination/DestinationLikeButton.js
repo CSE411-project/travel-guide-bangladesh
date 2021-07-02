@@ -3,8 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../App';
 
-const DestinationLikeButton = ({ destinationId, destination, setDestination }) => {
+const DestinationLikeButton = ({ destination, setDestination }) => {
     const { loggedInUser, setLoggedInUser } = useContext(UserContext);
+    const destinationId = destination._id;
     const [isLiked, setIsLiked] = useState(false);
 
     useEffect(() => {

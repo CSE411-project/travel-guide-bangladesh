@@ -6,6 +6,7 @@ import './Destination.css';
 import DestinationImage from './DestinationImage';
 import BookmarkButton from './BookmarkButton';
 import DestinationLikeButton from './DestinationLikeButton';
+import CommentSection from './CommentSection';
 
 const Destination = () => {
     const { loggedInUser } = useContext(UserContext);
@@ -21,7 +22,7 @@ const Destination = () => {
     return (
         <div className="destination-container">
             <div className="row justify-content-around mt-3 w-100">
-                <div className="col-md-3 align-self-center">
+                <div className="col-md-3 align-self-center position-sticky sticky-top">
                     <h1 className="darkOliveGreen">{destination.destination_name}</h1>
                     <h4 className="darkOliveGreen">{destination.destination_district}</h4>
                     <hr />
@@ -29,8 +30,8 @@ const Destination = () => {
                     {
                         loggedInUser.email &&
                         <>
-                            <DestinationLikeButton destinationId={destinationId} destination={destination} setDestination={setDestination} />
-                            <BookmarkButton destinationId={destinationId} />  
+                            <DestinationLikeButton destination={destination} setDestination={setDestination} />
+                            <BookmarkButton destination={destination} />  
                         </>
                     }         
                 </div>
@@ -39,6 +40,7 @@ const Destination = () => {
             <p className="container space text-justify lead darkOliveGreen my-5">
                 {destination.destination_description}
             </p>
+            <CommentSection destination={destination} setDestination={setDestination} />
         </div>
     );
 };

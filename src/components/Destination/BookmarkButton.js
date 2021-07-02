@@ -3,8 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../App';
 
-const BookmarkButton = ({ destinationId }) => {
+const BookmarkButton = ({ destination }) => {
     const { loggedInUser, setLoggedInUser } = useContext(UserContext);
+    const destinationId = destination._id;
     const [isBookmarked, setIsBookmarked] = useState(false);
 
     useEffect(() => {
