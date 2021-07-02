@@ -28,7 +28,7 @@ const PostNewComment = ({ destination, setDestination }) => {
         .then(response => response.json())
         .then(result => {
             if(result === true) {
-                const updatedDestination = destination;
+                const updatedDestination = {...destination};
                 updatedDestination.destination_comments = comments;
                 setDestination(updatedDestination);
 
