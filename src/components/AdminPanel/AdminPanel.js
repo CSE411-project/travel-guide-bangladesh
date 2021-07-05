@@ -35,8 +35,8 @@ const AdminPanel = () => {
         groupFormData.append('group_name', groupInfo.group_name);
         groupFormData.append('fb_url', groupInfo.fb_url);
         groupFormData.append('group_description', groupInfo.group_description);
-        groupFormData.append('logo', groupImage);
         groupFormData.append('like_count', 0);
+        groupFormData.append('logo', groupImage);
 
         fetch('http://localhost:5000/addGroup', {
             method: 'POST',

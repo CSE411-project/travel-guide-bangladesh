@@ -16,7 +16,7 @@ const PopularPlacesItem = ({destination}) => {
                             <h6>{destination_name}, <br /> {destination_district}</h6>
                         </div>
                         <div className="col-md-4 text-right">
-                            <h6>{like_count} people likes <br /> this place</h6>
+                            <h6>{like_count} people like <br /> this place</h6>
                         </div>
                     </div>
                 </div>

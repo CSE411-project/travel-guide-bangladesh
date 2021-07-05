@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 const DestinationlistItem = ({destination}) => {
@@ -16,7 +16,7 @@ const DestinationlistItem = ({destination}) => {
                     
                     <div className="row justify-content-between px-3">
                         <h6 className="pt-2">
-                            <FontAwesomeIcon style={{fontSize: '1.3em', color: "grey"}} icon={faHeart} /> {destination.like_count}
+                            <FontAwesomeIcon style={{fontSize: '1.3em', color: "grey"}} icon={faThumbsUp} /> {destination.like_count}
                         </h6>
                         <Link to={"/destination/" + destination._id} className="btn btn-secondary">See Full Info</Link>
                     </div>

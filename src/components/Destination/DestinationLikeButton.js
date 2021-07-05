@@ -25,7 +25,6 @@ const DestinationLikeButton = ({ destination, setDestination }) => {
 
             likeIncrement = -1;
             changedDestinationInfo.like_count -= 1;
-            setDestination(changedDestinationInfo);
         }
         else {
             newLikedDestinations = [...currentLikedDestinations, destinationId];
@@ -33,8 +32,8 @@ const DestinationLikeButton = ({ destination, setDestination }) => {
 
             likeIncrement = 1;
             changedDestinationInfo.like_count += 1;
-            setDestination(changedDestinationInfo);
         }
+        setDestination(changedDestinationInfo);
 
         const newUserInfo = loggedInUser;
         newUserInfo.liked_destinations = newLikedDestinations;

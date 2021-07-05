@@ -12,7 +12,7 @@ const TravelGroupSection = () => {
             <div className="travel-group-parallax"></div>
             <div className="travelGroupSection">
                 <div className="mx-auto text-center text-white">
-                    <h1 className="mt-3 mb-5">Travel Groups</h1>
+                    <h1 className="mt-5 mb-5">Travel Groups</h1>
 
                     {
                         groupList.length
