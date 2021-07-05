@@ -8,16 +8,6 @@ import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
 
 const Login = () => {
-    // const signedOutUser = {
-    //     isSignedIn: false,
-    //     displayName: '',
-    //     email: '',
-    //     password: '',
-    //     photo: '',
-    //     error: '',
-    //     success: false
-    // };
-
     initializeLoginFramework();
     const {loggedInUser, setLoggedInUser} = useContext(UserContext);
     let history = useHistory();

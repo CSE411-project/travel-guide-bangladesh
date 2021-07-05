@@ -13,13 +13,9 @@ const TravelGroupList = () => {
             {
                 groupList.length
                 ?
-                <div className="row">
-                    {
-                        groupList.map(group => <GroupListItem key={group._id} group={group} />)
-                    }
-                </div>
+                    groupList.map(group => <GroupListItem key={group._id} group={group} />)
                 :
-                <div className="loader mx-auto"></div>
+                    <div className="loader mx-auto"></div>
             }
         </div>
     );
