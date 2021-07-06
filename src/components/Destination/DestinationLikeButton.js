@@ -4,7 +4,7 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../App';
 
 const DestinationLikeButton = ({ destination, setDestination }) => {
-    const { loggedInUser, setLoggedInUser } = useContext(UserContext);
+    const { destinationList, setDestinationList, loggedInUser, setLoggedInUser } = useContext(UserContext);
     const destinationId = destination._id;
     const [isLiked, setIsLiked] = useState(false);
 
@@ -17,6 +17,7 @@ const DestinationLikeButton = ({ destination, setDestination }) => {
         const currentLikedDestinations = loggedInUser.liked_destinations;
         let newLikedDestinations = [];
         const changedDestinationInfo = {...destination};
+        const modifiedDestinationList = [...destinationList];
         let likeIncrement;
 
         if(currentLikedDestinations.includes(destinationId)) {
@@ -33,9 +34,17 @@ const DestinationLikeButton = ({ destination, setDestination }) => {
             likeIncrement = 1;
             changedDestinationInfo.like_count += 1;
         }
-        setDestination(changedDestinationInfo);
 
-        const newUserInfo = loggedInUser;
+        for(let i = 0; i < modifiedDestinationList.length; i++) {
+            if(modifiedDestinationList[i]._id === changedDestinationInfo._id) {
+                modifiedDestinationList[i] = changedDestinationInfo;
+                break;
+            }
+        }
+        setDestination(changedDestinationInfo);
+        setDestinationList(modifiedDestinationList);
+
+        const newUserInfo = {...loggedInUser};
         newUserInfo.liked_destinations = newLikedDestinations;
         setLoggedInUser(newUserInfo);
         localStorage.setItem("userInfo", JSON.stringify(newUserInfo));      

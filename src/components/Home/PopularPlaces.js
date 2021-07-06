@@ -3,6 +3,7 @@ import './PopularPlaces.css';
 import PopularPlacesItem from './PopularPlacesItem';
 import { UserContext } from '../../App';
 import { Link } from 'react-router-dom';
+import Loader from '../Shared/Loader';
 
 const PopularPlaces = () => {
     const {destinationList} = useContext(UserContext);
@@ -20,7 +21,7 @@ const PopularPlaces = () => {
                     }
                 </div>
                 :
-                <div className="loader mx-auto"></div>
+                <Loader />
             }
 
             <div style={{marginTop: "-50px"}} className="container d-flex justify-content-center mb-5">

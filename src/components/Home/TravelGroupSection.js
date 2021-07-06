@@ -3,6 +3,7 @@ import './TravelGroupSection.css';
 import { UserContext } from '../../App';
 import HighlightedTravelGroup from './HighlightedTravelGroup';
 import { Link } from 'react-router-dom';
+import Loader from '../Shared/Loader';
 
 const TravelGroupSection = () => {
     const {groupList} = useContext(UserContext);
@@ -23,7 +24,7 @@ const TravelGroupSection = () => {
                             }
                         </div>
                         :
-                        <div className="loader mx-auto"></div>
+                        <Loader />
                     }
 
                     <div className="container d-flex justify-content-center pb-4">

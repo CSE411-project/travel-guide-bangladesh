@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../../App';
+import Loader from '../Shared/Loader';
 import GroupListItem from './GroupListItem';
-import './TravelGroupList.css';
 
 const TravelGroupList = () => {
-    const {groupList} = useContext(UserContext);
+    const { groupList } = useContext(UserContext);
 
     return (
-        <div className="travel-group-list container">
+        <div style={{marginBottom: "200px"}} className="container">
             <h1 className="text-center my-5">Travel Groups</h1>
 
             {
@@ -15,7 +15,7 @@ const TravelGroupList = () => {
                 ?
                     groupList.map(group => <GroupListItem key={group._id} group={group} />)
                 :
-                    <div className="loader mx-auto"></div>
+                    <Loader />
             }
         </div>
     );

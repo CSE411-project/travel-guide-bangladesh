@@ -7,6 +7,7 @@ import DestinationImage from './DestinationImage';
 import BookmarkButton from './BookmarkButton';
 import DestinationLikeButton from './DestinationLikeButton';
 import CommentSection from './CommentSection';
+import Loader from '../Shared/Loader';
 
 const Destination = () => {
     const { loggedInUser } = useContext(UserContext);
@@ -21,26 +22,34 @@ const Destination = () => {
     
     return (
         <div className="destination-container">
-            <div className="row justify-content-around mt-3 w-100">
-                <div className="col-md-3 align-self-center position-sticky sticky-top">
-                    <h1 className="darkOliveGreen">{destination.destination_name}</h1>
-                    <h4 className="darkOliveGreen">{destination.destination_district}</h4>
-                    <hr />
-                    <p className="lead darkOliveGreen">{Number(destination.like_count)} people like this place</p>
-                    {
-                        loggedInUser.email &&
-                        <>
-                            <DestinationLikeButton destination={destination} setDestination={setDestination} />
-                            <BookmarkButton destination={destination} />  
-                        </>
-                    }         
-                </div>
-                <DestinationImage destination={destination} />
-            </div>
-            <p className="container space text-justify lead darkOliveGreen my-5">
-                {destination.destination_description}
-            </p>
-            <CommentSection destination={destination} setDestination={setDestination} />
+            {
+                destination._id
+                ?
+                <>
+                    <div className="row justify-content-around mt-3 w-100">
+                        <div className="col-md-3 align-self-center position-sticky sticky-top">
+                            <h1 className="darkOliveGreen">{destination.destination_name}</h1>
+                            <h4 className="darkOliveGreen">{destination.destination_district}</h4>
+                            <hr />
+                            <p className="lead darkOliveGreen">{Number(destination.like_count)} people like this place</p>
+                            {
+                                loggedInUser.email &&
+                                <>
+                                    <DestinationLikeButton destination={destination} setDestination={setDestination} />
+                                    <BookmarkButton destination={destination} />  
+                                </>
+                            }         
+                        </div>
+                        <DestinationImage destination={destination} />
+                    </div>
+                    <p className="container space text-justify lead darkOliveGreen my-5">
+                        {destination.destination_description}
+                    </p>
+                    <CommentSection destination={destination} setDestination={setDestination} />
+                </>
+                :
+                <Loader />
+            }
         </div>
     );
 };
