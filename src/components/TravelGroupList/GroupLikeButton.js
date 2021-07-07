@@ -1,6 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../App';
 import { useEffect } from 'react';
 
@@ -42,7 +40,6 @@ const GroupLikeButton = ({ group }) => {
                 break;
             }
         }
-        // setDestination(changedGroupInfo);
         setGroupList(modifiedGroupList);
 
         const newUserInfo = {...loggedInUser};
@@ -59,7 +56,6 @@ const GroupLikeButton = ({ group }) => {
 
     return (
         <>
-            <FontAwesomeIcon style={{fontSize: '1.3em', color: "grey"}} icon={faThumbsUp} /> {Number(group.like_count)}
             {
                 isLiked
                 ?

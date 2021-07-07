@@ -50,6 +50,10 @@ const ContactSection = () => {
                     </p>
 
                     <h1 className="mt-5">Contact Us</h1>
+                    {
+                        ! loggedInUser.email &&
+                        <p className="text-warning text-left">Login first to send message !!</p>
+                    }
 
                     <form onSubmit={sendEmail}>
                         {

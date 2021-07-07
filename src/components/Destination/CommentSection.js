@@ -16,8 +16,11 @@ const CommentSection = ({ destination, setDestination }) => {
                 destination.destination_comments?.map(comment => <SingleComment key={comment.comment_id} comment={comment} />)
             }
             {
-                loggedInUser.email && 
-                <PostNewComment destination={destination} setDestination={setDestination} />
+                loggedInUser.email 
+                ? 
+                    <PostNewComment destination={destination} setDestination={setDestination} />
+                :
+                    <p className="text-warning">Login first to post comment !!</p>
             }
         </div>
     );

@@ -5,8 +5,13 @@ import { SiGmail } from "react-icons/si";
 import { useState } from 'react';
 import './GroupListItem.css';
 import GroupLikeButton from './GroupLikeButton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { useContext } from 'react';
+import { UserContext } from '../../App';
 
 const GroupListItem = ({ group }) => {
+    const { loggedInUser } = useContext(UserContext);
     const { group_name, group_description, logoURL, fb_url } = group;
     const [seeMoreClicked, setSeeMoreClicked] = useState(false);
     
@@ -34,7 +39,11 @@ const GroupListItem = ({ group }) => {
                     }
                 </p>
 
-                <GroupLikeButton group={group} />
+                <FontAwesomeIcon style={{fontSize: '1.3em', color: "grey"}} icon={faThumbsUp} /> {Number(group.like_count)}
+                {
+                    loggedInUser.email &&
+                    <GroupLikeButton group={group} />
+                }
                 <div className="text-secondary row mt-5 mx-0">
                     <h2>
                         <a href={fb_url} target="_blank" rel="noopener noreferrer"><AiFillFacebook /></a>

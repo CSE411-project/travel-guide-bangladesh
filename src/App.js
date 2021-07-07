@@ -14,6 +14,8 @@ import Destination from "./components/Destination/Destination";
 import DestinationList from "./components/DestinationList/DestinationList";
 import Navbar from "./components/Shared/Navbar";
 import Footer from "./components/Shared/Footer";
+import Bookmark from "./components/Bookmark/Bookmark";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 export const UserContext = createContext();
 
@@ -55,17 +57,17 @@ function App() {
             <Login />
           </Route>
 
-          <Route path="/admin">
+          <PrivateRoute path="/admin">
             <AdminPanel />
-          </Route>
+          </PrivateRoute>
 
           <Route path="/travelGroupList">
             <TravelGroupList />
           </Route>
 
-          {/* <Route path="/travelGroup/:travelGroupId">
-            <SingleTravelGroup />
-          </Route> */}
+          <Route path="/bookmarks">
+            <Bookmark />
+          </Route>
 
           <Route path="/destinationList">
             <DestinationList />

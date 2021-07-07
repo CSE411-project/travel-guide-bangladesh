@@ -2,13 +2,13 @@ import React from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../../App';
 import DestinationlistItem from './DestinationListItem';
-import './DestinationList.css';
+import Loader from '../Shared/Loader';
 
 const DestinationList = () => {
-    const {destinationList} = useContext(UserContext);
+    const { destinationList } = useContext(UserContext);
 
     return (
-        <div className="destination-list container">
+        <div className="container">
             <h1 className="text-center mb-5">Travel Destinations</h1>
 
             {
@@ -20,7 +20,7 @@ const DestinationList = () => {
                     }
                 </div>
                 :
-                <div className="loader mx-auto"></div>
+                <Loader />
             }
         </div>
     );

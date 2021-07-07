@@ -2,7 +2,7 @@ import React from 'react';
 import CarouselImage1 from '../../images/carousel/carousel1.jpg';
 import CarouselImage2 from '../../images/carousel/carousel2.jpg';
 import CarouselImage3 from '../../images/carousel/carousel3.jpg';
-import './Carousel.css';
+import './HomeCarousel.css';
 
 const HomeCarousel = () => {
     return (
@@ -11,13 +11,7 @@ const HomeCarousel = () => {
                 <div className="col-md-5 headtext">
                     <h1>Travel Easy &amp; Safe</h1>
                     <p>
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                        dolor
-                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                        anim id est laborum."
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt autem obcaecati unde magnam, sapiente recusandae cupiditate. Fugiat explicabo ratione accusantium itaque assumenda quam placeat sed iusto aliquid corrupti quos aut dolores amet optio dolorum nobis dolor, enim in inventore temporibus nam ut. Odit rerum fugiat assumenda quo. Adipisci perspiciatis reiciendis animi eveniet soluta facere laudantium consectetur est porro veniam architecto suscipit commodi, sequi minus velit perferendis possimus quas dolor quo voluptas! Itaque libero nostrum numquam quasi aliquid error totam? Aliquam non voluptate repellat placeat praesentium ipsam, rerum commodi molestias eaque nemo perspiciatis. Amet illum facilis, cumque nostrum ullam soluta deserunt?
                     </p>
                 </div>
 

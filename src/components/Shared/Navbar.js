@@ -23,7 +23,7 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav align-items-center  ml-auto">
                         <li className="nav-item">
-                            <Link className="nav-link mr-5 active" aria-current="page" to="/home">Home</Link>
+                            <Link className="nav-link mr-5" aria-current="page" to="/home">Home</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link mr-5" aria-current="page" to="/destinationList">Travel Destinations</Link>
@@ -48,7 +48,9 @@ const Navbar = () => {
                                     </div>
 
                                     <ul className="dropdown-menu w-75 green-background" aria-labelledby="dropdownMenuLink">
-                                        <li className="dropdown-item text-secondary">Bookmarks</li>
+                                        <li className="dropdown-item text-secondary">
+                                            <Link to="/bookmarks">Bookmarks</Link>
+                                        </li>
                                         <li onClick={handleLogOut} className="dropdown-item text-secondary font-weight-bold">Logout</li>
                                     </ul>
                                 </div>
