@@ -33,11 +33,14 @@ const Destination = () => {
                             <hr />
                             <p className="lead darkOliveGreen">{Number(destination.like_count)} people like this place</p>
                             {
-                                loggedInUser.email &&
+                                loggedInUser.email 
+                                ?
                                 <>
-                                    <DestinationLikeButton destination={destination} setDestination={setDestination} />
-                                    <BookmarkButton destination={destination} />  
-                                </>
+                                        <DestinationLikeButton destination={destination} setDestination={setDestination} />
+                                        <BookmarkButton destination={destination} />  
+                                    </>
+                                :
+                                <p style={{color: "darkGoldenRod"}} className="lead">* Login first to like and bookmark this destination</p>
                             }         
                         </div>
                         <DestinationImage destination={destination} />

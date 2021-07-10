@@ -39,11 +39,16 @@ const GroupListItem = ({ group }) => {
                     }
                 </p>
 
-                <FontAwesomeIcon style={{fontSize: '1.3em', color: "grey"}} icon={faThumbsUp} /> {Number(group.like_count)}
-                {
-                    loggedInUser.email &&
-                    <GroupLikeButton group={group} />
-                }
+                <div className="like-info">
+                    <FontAwesomeIcon style={{fontSize: '1.3em', color: "grey"}} icon={faThumbsUp} /> {Number(group.like_count)}
+                    {
+                        loggedInUser.email 
+                        ?
+                            <GroupLikeButton group={group} />
+                        :
+                            <span style={{color: "darkgoldenrod"}} className="ml-5">* Login first to like this group</span>
+                    }
+                </div>
                 <div className="text-secondary row mt-5 mx-0">
                     <h2>
                         <a href={fb_url} target="_blank" rel="noopener noreferrer"><AiFillFacebook /></a>

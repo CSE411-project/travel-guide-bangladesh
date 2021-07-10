@@ -20,7 +20,7 @@ const CommentSection = ({ destination, setDestination }) => {
                 ? 
                     <PostNewComment destination={destination} setDestination={setDestination} />
                 :
-                    <p className="text-warning">Login first to post comment !!</p>
+                    <p style={{color: "darkGoldenRod"}} className="lead">* Login first to post comment !!</p>
             }
         </div>
     );
