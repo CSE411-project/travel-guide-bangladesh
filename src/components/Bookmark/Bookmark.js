@@ -10,7 +10,7 @@ const Bookmark = () => {
     const [bookmarkedDestinations, setBookmarkedDestinations] = useState([]);
     
     useEffect(() => {
-        const userBookmarks = loggedInUser.bookmarks;
+        const userBookmarks = loggedInUser.info.bookmarks;
         
         const destArr = [];
         if(userBookmarks && destinationList.length) {

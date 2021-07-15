@@ -7,7 +7,7 @@ const PostNewComment = ({ destination, setDestination }) => {
     const { loggedInUser } = useContext(UserContext);
     const destinationId = destination._id;
     const commentRef = useRef();
-    const { name, photo } = loggedInUser;
+    const { name, photo } = loggedInUser.info;
 
     const handleCommentSubmit = (e) => {
         e.preventDefault();

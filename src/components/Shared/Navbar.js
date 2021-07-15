@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
 
 const Navbar = () => {
-    const { loggedInUser, setLoggedInUser } = useContext(UserContext);
+    const { loggedInUser, loggedInUserDispatch } = useContext(UserContext);
     const handleLogOut = () => {
         localStorage.removeItem("userInfo");
-        setLoggedInUser({}); 
+        loggedInUserDispatch({ action: 'REMOVE_USER' }); 
     }
 
     return (
@@ -32,19 +32,19 @@ const Navbar = () => {
                             <Link className="nav-link mr-5" aria-current="page" to="/travelGroupList">Travel Groups</Link>
                         </li>
                         {
-                            loggedInUser.isAdmin &&
+                            loggedInUser.info.isAdmin &&
                             <li className="nav-item">
                                 <Link className="nav-link mr-5" aria-current="page" to="/admin">Admin Panel</Link>
                             </li>
                         }
                         <li className="nav-item">
                             {
-                                loggedInUser.email 
+                                loggedInUser.info.email 
                                 ?
                                 <div className="dropdown show">
                                     <div className="nav-link text-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img className="w-25 mr-2 rounded-circle" src={loggedInUser.photo} alt=""/>
-                                        {loggedInUser.name}
+                                        <img className="w-25 mr-2 rounded-circle" src={loggedInUser.info.photo} alt=""/>
+                                        {loggedInUser.info.name}
                                     </div>
 
                                     <ul className="dropdown-menu w-75 green-background" aria-labelledby="dropdownMenuLink">

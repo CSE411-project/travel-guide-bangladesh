@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Loader from '../Shared/Loader';
 
 const TravelGroupSection = () => {
-    const {groupList} = useContext(UserContext);
+    const { groupList } = useContext(UserContext);
 
     return (
         <div className="travel-group-container" style={{position: "relative"}}>
@@ -16,15 +16,15 @@ const TravelGroupSection = () => {
                     <h1 className="mt-5 mb-5">Travel Groups</h1>
 
                     {
-                        groupList.length
+                        groupList.groups
                         ?
-                        <div className="row justify-content-center mx-0">
-                            {
-                                groupList.map(group => <HighlightedTravelGroup key={group._id} group={group} />)
-                            }
-                        </div>
+                            <div className="row justify-content-center mx-0">
+                                {
+                                    groupList.groups.map(group => <HighlightedTravelGroup key={group._id} group={group} />)
+                                }
+                            </div>
                         :
-                        <Loader />
+                            <Loader />
                     }
 
                     <div className="container d-flex justify-content-center pb-4">

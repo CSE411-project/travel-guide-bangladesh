@@ -11,9 +11,9 @@ const TravelGroupList = () => {
             <h1 className="text-center my-5">Travel Groups</h1>
 
             {
-                groupList.length
+                groupList.groups.length
                 ?
-                    groupList.map(group => <GroupListItem key={group._id} group={group} />)
+                    groupList.groups.map(group => <GroupListItem key={group._id} group={group} />)
                 :
                     <Loader />
             }

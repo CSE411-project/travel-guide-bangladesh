@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useReducer, useState } from "react";
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -16,26 +16,31 @@ import Navbar from "./components/Shared/Navbar";
 import Footer from "./components/Shared/Footer";
 import Bookmark from "./components/Bookmark/Bookmark";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import { groupListReducer, groupListInitial, loggedInUserReducer, loggedInUserInitial } from "./utilities/reducer";
 
 export const UserContext = createContext();
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({});
-  const [groupList, setGroupList] = useState([]);
   const [destinationList, setDestinationList] = useState([]);
   const [loadGroup, setLoadGroup] = useState(false);
   const [loadDestination, setLoadDestination] = useState(false);
+  
+  const [ groupList, groupListDispatch ] = useReducer(groupListReducer, groupListInitial);
+  const [ loggedInUser, loggedInUserDispatch ] = useReducer(loggedInUserReducer, loggedInUserInitial);
+  
 
   useEffect(() => {
     const userInfo = localStorage.getItem("userInfo") || "{}";
     const data = JSON.parse(userInfo);
-    setLoggedInUser(data);
+    loggedInUserDispatch({ type: 'SET_USER', userInfo: data });
   }, []);
 
   useEffect(() => {
     fetch('http://localhost:5000/groupList')
     .then(res => res.json())
-    .then(data => setGroupList(data))
+    .then(data => {
+      groupListDispatch({ type: 'LOAD_GROUPS', groupList: data });
+    })
   }, [loadGroup]);
 
   useEffect(() => {
@@ -45,7 +50,7 @@ function App() {
   }, [loadDestination]);
 
   return (
-    <UserContext.Provider value={{ loggedInUser, setLoggedInUser, groupList, setGroupList, destinationList, setDestinationList, setLoadGroup, setLoadDestination }}>
+    <UserContext.Provider value={{ loggedInUser, loggedInUserDispatch, groupList, groupListDispatch, destinationList, setDestinationList, setLoadGroup, setLoadDestination }}>
       <Router>
         <Navbar />
         <Switch>

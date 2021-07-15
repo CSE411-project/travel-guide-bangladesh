@@ -42,7 +42,7 @@ const GroupListItem = ({ group }) => {
                 <div className="like-info">
                     <FontAwesomeIcon style={{fontSize: '1.3em', color: "grey"}} icon={faThumbsUp} /> {Number(group.like_count)}
                     {
-                        loggedInUser.email 
+                        loggedInUser.info.email 
                         ?
                             <GroupLikeButton group={group} />
                         :

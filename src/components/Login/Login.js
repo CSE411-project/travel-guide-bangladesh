@@ -9,7 +9,7 @@ import { useHistory, useLocation } from 'react-router';
 
 const Login = () => {
     initializeLoginFramework();
-    const {loggedInUser, setLoggedInUser} = useContext(UserContext);
+    const {loggedInUser, loggedInUserDispatch} = useContext(UserContext);
     let history = useHistory();
     let location = useLocation();
 
@@ -26,7 +26,7 @@ const Login = () => {
             })
                 .then(result => result.json())
                 .then(userInfo => {
-                    setLoggedInUser(userInfo);
+                    loggedInUserDispatch({ type: 'SET_USER', userInfo: userInfo });
                     localStorage.setItem("userInfo", JSON.stringify(userInfo));
                 });
 
@@ -77,7 +77,7 @@ const Login = () => {
                         </div>
 
                         {
-                            loggedInUser.error && <p className="text-center text-danger mt-5">{loggedInUser.error}</p>
+                            loggedInUser.info.error && <p className="text-center text-danger mt-5">{loggedInUser.info.error}</p>
                         }
                     </div>
                 </div>

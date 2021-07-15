@@ -9,7 +9,7 @@ const ContactSection = () => {
     const sendEmail = (e) => {
         e.preventDefault();
         
-        if(!loggedInUser.email) {
+        if(!loggedInUser.info.email) {
             alert('Please login first to send messages !!');
             return;
         }
@@ -51,16 +51,16 @@ const ContactSection = () => {
 
                     <h1 className="mt-5">Contact Us</h1>
                     {
-                        ! loggedInUser.email &&
+                        ! loggedInUser.info.email &&
                         <p className="text-warning text-left">Login first to send message !!</p>
                     }
 
                     <form onSubmit={sendEmail}>
                         {
-                            loggedInUser.email &&
+                            loggedInUser.info.email &&
                             <>
-                                <input type="text" className="form-control my-4" name="name" value={loggedInUser.name} readOnly= {true} />
-                                <input type="email" className="form-control my-4" name="email" value={loggedInUser.email} readOnly= {true} />
+                                <input type="text" className="form-control my-4" name="name" value={loggedInUser.info.name} readOnly= {true} />
+                                <input type="email" className="form-control my-4" name="email" value={loggedInUser.info.email} readOnly= {true} />
                             </>                                
                         }
                         <input type="text" className="form-control my-4" placeholder="Subject" name="subject" required />

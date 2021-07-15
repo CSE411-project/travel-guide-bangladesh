@@ -33,7 +33,7 @@ const Destination = () => {
                             <hr />
                             <p className="lead darkOliveGreen">{Number(destination.like_count)} people like this place</p>
                             {
-                                loggedInUser.email 
+                                loggedInUser.info.email 
                                 ?
                                 <>
                                         <DestinationLikeButton destination={destination} setDestination={setDestination} />

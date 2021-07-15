@@ -16,7 +16,7 @@ const CommentSection = ({ destination, setDestination }) => {
                 destination.destination_comments?.map(comment => <SingleComment key={comment.comment_id} comment={comment} />)
             }
             {
-                loggedInUser.email 
+                loggedInUser.info.email 
                 ? 
                     <PostNewComment destination={destination} setDestination={setDestination} />
                 :

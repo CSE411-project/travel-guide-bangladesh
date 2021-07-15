@@ -4,17 +4,17 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../App';
 
 const DestinationLikeButton = ({ destination, setDestination }) => {
-    const { destinationList, setDestinationList, loggedInUser, setLoggedInUser } = useContext(UserContext);
+    const { destinationList, setDestinationList, loggedInUser, loggedInUserDispatch } = useContext(UserContext);
     const destinationId = destination._id;
     const [isLiked, setIsLiked] = useState(false);
 
     useEffect(() => {
-        if(loggedInUser.liked_destinations.find(destination => destination === destinationId)) 
+        if(loggedInUser.info.liked_destinations.find(destination => destination === destinationId)) 
             setIsLiked(true);
     }, [loggedInUser, destinationId]);
 
     const handleLike = () => {
-        const currentLikedDestinations = loggedInUser.liked_destinations;
+        const currentLikedDestinations = loggedInUser.info.liked_destinations;
         let newLikedDestinations = [];
         const changedDestinationInfo = {...destination};
         const modifiedDestinationList = [...destinationList];
@@ -44,15 +44,15 @@ const DestinationLikeButton = ({ destination, setDestination }) => {
         setDestination(changedDestinationInfo);
         setDestinationList(modifiedDestinationList);
 
-        const newUserInfo = {...loggedInUser};
+        const newUserInfo = {...loggedInUser.info};
         newUserInfo.liked_destinations = newLikedDestinations;
-        setLoggedInUser(newUserInfo);
         localStorage.setItem("userInfo", JSON.stringify(newUserInfo));      
+        loggedInUserDispatch({ type: 'SET_LIKED_DESTINATION', newLikedDestinations: newLikedDestinations });
 
         fetch('http://localhost:5000/updateLikedDestination', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({email: loggedInUser.email, likedDestinations: newLikedDestinations, destinationId, likeIncrement})
+            body: JSON.stringify({email: loggedInUser.info.email, likedDestinations: newLikedDestinations, destinationId, likeIncrement})
         });
     };
 

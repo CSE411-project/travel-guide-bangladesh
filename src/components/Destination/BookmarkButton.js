@@ -4,17 +4,17 @@ import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../App';
 
 const BookmarkButton = ({ destination }) => {
-    const { loggedInUser, setLoggedInUser } = useContext(UserContext);
+    const { loggedInUser, loggedInUserDispatch } = useContext(UserContext);
     const destinationId = destination._id;
     const [isBookmarked, setIsBookmarked] = useState(false);
 
     useEffect(() => {
-        if(loggedInUser.bookmarks.find(bookmark => bookmark === destinationId)) 
+        if(loggedInUser.info.bookmarks.find(bookmark => bookmark === destinationId)) 
             setIsBookmarked(true);
     }, [loggedInUser, destinationId]);
 
     const handleBookmark = () => {
-        const currentBookmarks = loggedInUser.bookmarks;
+        const currentBookmarks = loggedInUser.info.bookmarks;
         let newBookmarks = [];
 
         if(currentBookmarks.includes(destinationId)) {
@@ -26,15 +26,15 @@ const BookmarkButton = ({ destination }) => {
             setIsBookmarked(true);
         }
 
-        const newUserInfo = loggedInUser;
+        const newUserInfo = {...loggedInUser.info};
         newUserInfo.bookmarks = newBookmarks;
-        setLoggedInUser(newUserInfo);
         localStorage.setItem("userInfo", JSON.stringify(newUserInfo));      
+        loggedInUserDispatch({ type: 'SET_BOOKMARK', bookmarks: newBookmarks });
 
         fetch('http://localhost:5000/updateBookmark', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({email: loggedInUser.email, bookmarks: newBookmarks})
+            body: JSON.stringify({email: loggedInUser.info.email, bookmarks: newBookmarks})
         });
     };
 
