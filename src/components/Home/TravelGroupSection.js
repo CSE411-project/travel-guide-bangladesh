@@ -18,7 +18,7 @@ const TravelGroupSection = () => {
                     {
                         groupList.length
                         ?
-                        <div className="row justify-content-center">
+                        <div className="row justify-content-center mx-0">
                             {
                                 groupList.map(group => <HighlightedTravelGroup key={group._id} group={group} />)
                             }
