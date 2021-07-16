@@ -6,15 +6,15 @@ import { Link } from 'react-router-dom';
 import Loader from '../Shared/Loader';
 
 const PopularPlaces = () => {
-    const {destinationList} = useContext(UserContext);
-    const sampleDestinationList = destinationList.slice(0, 4);
+    const { destinationList } = useContext(UserContext);
+    const sampleDestinationList = destinationList.destinations.slice(0, 4);
 
     return (
         <div className="popular-place-container">
             <h1 className="text-center mt-5 mb-5">Now Trending</h1>
 
             {
-                destinationList.length 
+                destinationList.destinations.length 
                 ?
                 <div className="row justify-content-center mx-0">
                     {

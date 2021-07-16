@@ -12,11 +12,11 @@ const DestinationList = () => {
             <h1 className="text-center mb-5">Travel Destinations</h1>
 
             {
-                destinationList.length
+                destinationList.destinations.length
                 ?
                 <div className="row">
                     {
-                        destinationList.map(destination => <DestinationlistItem key={destination._id} destination={destination} />)
+                        destinationList.destinations.map(destination => <DestinationlistItem key={destination._id} destination={destination} />)
                     }
                 </div>
                 :

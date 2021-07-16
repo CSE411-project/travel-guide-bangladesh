@@ -3,7 +3,7 @@ import { UserContext } from '../../App';
 import { useEffect } from 'react';
 
 const GroupLikeButton = ({ group }) => {
-    const { loggedInUser, loggedInUserDispatch, groupList, groupListDispatch } = useContext(UserContext);
+    const { loggedInUser, loggedInUserDispatch, groupListDispatch } = useContext(UserContext);
     const groupId = group._id;
     const [isLiked, setIsLiked] = useState(false);
 
@@ -16,7 +16,6 @@ const GroupLikeButton = ({ group }) => {
         const currentLikedGroups = loggedInUser.info.liked_groups;
         let newLikedGroups = [];
         const changedGroupInfo = {...group};
-        const modifiedGroupList = [...groupList.groups];
         let likeIncrement;
 
         if(currentLikedGroups.includes(groupId)) {
@@ -34,12 +33,6 @@ const GroupLikeButton = ({ group }) => {
             changedGroupInfo.like_count += 1;
         }
 
-        for(let i = 0; i < modifiedGroupList.length; i++) {
-            if(modifiedGroupList[i]._id === changedGroupInfo._id) {
-                modifiedGroupList[i] = changedGroupInfo;
-                break;
-            }
-        }
         groupListDispatch({ type: 'UPDATE_LIKE', changedGroup: changedGroupInfo });
 
         const newUserInfo = {...loggedInUser.info};

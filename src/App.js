@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer, useState } from "react";
+import React, { createContext, useEffect, useReducer } from "react";
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -16,15 +16,14 @@ import Navbar from "./components/Shared/Navbar";
 import Footer from "./components/Shared/Footer";
 import Bookmark from "./components/Bookmark/Bookmark";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import { groupListReducer, groupListInitial, loggedInUserReducer, loggedInUserInitial } from "./utilities/reducer";
+import { groupListInitial, groupListReducer } from "./utilities/GroupListReducer";
+import { loggedInUserInitial, loggedInUserReducer } from "./utilities/LoggedInUserReducer";
+import { destinationListInitial, destinationListReducer } from "./utilities/DestinationListReducer";
 
 export const UserContext = createContext();
 
 function App() {
-  const [destinationList, setDestinationList] = useState([]);
-  const [loadGroup, setLoadGroup] = useState(false);
-  const [loadDestination, setLoadDestination] = useState(false);
-  
+  const [ destinationList, destinationListDispatch ] = useReducer(destinationListReducer, destinationListInitial);
   const [ groupList, groupListDispatch ] = useReducer(groupListReducer, groupListInitial);
   const [ loggedInUser, loggedInUserDispatch ] = useReducer(loggedInUserReducer, loggedInUserInitial);
   
@@ -41,16 +40,16 @@ function App() {
     .then(data => {
       groupListDispatch({ type: 'LOAD_GROUPS', groupList: data });
     })
-  }, [loadGroup]);
+  }, []);
 
   useEffect(() => {
     fetch('http://localhost:5000/destinationList')
     .then(res => res.json())
-    .then(data => setDestinationList(data))
-  }, [loadDestination]);
+    .then(data => destinationListDispatch({ type: 'LOAD_DESTINATIONS', destinations: data }))
+  }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInUser, loggedInUserDispatch, groupList, groupListDispatch, destinationList, setDestinationList, setLoadGroup, setLoadDestination }}>
+    <UserContext.Provider value={{ loggedInUser, loggedInUserDispatch, groupList, groupListDispatch, destinationList, destinationListDispatch }}>
       <Router>
         <Navbar />
         <Switch>
@@ -70,9 +69,9 @@ function App() {
             <TravelGroupList />
           </Route>
 
-          <Route path="/bookmarks">
+          <PrivateRoute path="/bookmarks">
             <Bookmark />
-          </Route>
+          </PrivateRoute>
 
           <Route path="/destinationList">
             <DestinationList />

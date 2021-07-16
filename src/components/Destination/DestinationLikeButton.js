@@ -4,7 +4,7 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../App';
 
 const DestinationLikeButton = ({ destination, setDestination }) => {
-    const { destinationList, setDestinationList, loggedInUser, loggedInUserDispatch } = useContext(UserContext);
+    const { destinationListDispatch, loggedInUser, loggedInUserDispatch } = useContext(UserContext);
     const destinationId = destination._id;
     const [isLiked, setIsLiked] = useState(false);
 
@@ -17,7 +17,6 @@ const DestinationLikeButton = ({ destination, setDestination }) => {
         const currentLikedDestinations = loggedInUser.info.liked_destinations;
         let newLikedDestinations = [];
         const changedDestinationInfo = {...destination};
-        const modifiedDestinationList = [...destinationList];
         let likeIncrement;
 
         if(currentLikedDestinations.includes(destinationId)) {
@@ -35,14 +34,8 @@ const DestinationLikeButton = ({ destination, setDestination }) => {
             changedDestinationInfo.like_count += 1;
         }
 
-        for(let i = 0; i < modifiedDestinationList.length; i++) {
-            if(modifiedDestinationList[i]._id === changedDestinationInfo._id) {
-                modifiedDestinationList[i] = changedDestinationInfo;
-                break;
-            }
-        }
         setDestination(changedDestinationInfo);
-        setDestinationList(modifiedDestinationList);
+        destinationListDispatch({ type: 'UPDATE_LIKE', changedDestination: changedDestinationInfo })
 
         const newUserInfo = {...loggedInUser.info};
         newUserInfo.liked_destinations = newLikedDestinations;

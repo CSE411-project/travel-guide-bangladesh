@@ -13,9 +13,9 @@ const Bookmark = () => {
         const userBookmarks = loggedInUser.info.bookmarks;
         
         const destArr = [];
-        if(userBookmarks && destinationList.length) {
+        if(userBookmarks && destinationList.destinations.length) {
             for(let i = 0; i < userBookmarks.length; i++) {
-                const dest = destinationList.find(d => d._id === userBookmarks[i]);
+                const dest = destinationList.destinations.find(d => d._id === userBookmarks[i]);
                 destArr.push(dest);
             }
         }
@@ -27,7 +27,7 @@ const Bookmark = () => {
             <h1 className="text-center mb-5">Travel Destinations</h1>
 
             {
-                destinationList.length
+                destinationList.destinations.length
                 ?
                 <div className="row">
                     {

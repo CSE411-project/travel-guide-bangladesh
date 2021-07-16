@@ -7,6 +7,7 @@ import Loader from '../Shared/Loader';
 
 const TravelGroupSection = () => {
     const { groupList } = useContext(UserContext);
+    const sampleGroupList = groupList.groups.slice(0, 3);
 
     return (
         <div className="travel-group-container" style={{position: "relative"}}>
@@ -20,7 +21,7 @@ const TravelGroupSection = () => {
                         ?
                             <div className="row justify-content-center mx-0">
                                 {
-                                    groupList.groups.map(group => <HighlightedTravelGroup key={group._id} group={group} />)
+                                    sampleGroupList.map(group => <HighlightedTravelGroup key={group._id} group={group} />)
                                 }
                             </div>
                         :

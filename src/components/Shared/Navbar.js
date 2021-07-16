@@ -10,7 +10,7 @@ const Navbar = () => {
     const { loggedInUser, loggedInUserDispatch } = useContext(UserContext);
     const handleLogOut = () => {
         localStorage.removeItem("userInfo");
-        loggedInUserDispatch({ action: 'REMOVE_USER' }); 
+        loggedInUserDispatch({ type: 'REMOVE_USER' }); 
     }
 
     return (
